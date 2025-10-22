@@ -8,18 +8,22 @@ const app = express()
 const port = 3333
 
 app.use(cors())
+app.use(express.json())
 
 app.get("/", (request, response)=> {
     response.json(persons)
 })
 
-app.listen(port, ()=> {
+app.post("/cadastrar", (request, response) =>{
+    const { user } = request.body
+    console.log(user)
+
+    response.status(201).json({ message: "Usuário cadastrado com sucesso!"})
+})
+
+
+
+app.listen(port, () => {
     console.log(`Server Running on port ${port}`)
 })
 
-const person = {
-    name: "Guilherme Moraes",
-    age: 16,
-    cpf: 12345678900
-
-}
