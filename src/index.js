@@ -52,4 +52,4 @@ const database = mysql2.createPool({
     password: DB_PASSWORD,
     connectionLimit: 10
 })
-
+const table = 0
